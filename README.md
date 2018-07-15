@@ -6,6 +6,8 @@
 
 ### Instantiation
 
+This client requires an [API Key](https://developer.ft.com/portal/docs-start-obtain-an-api-key) which can be generated using a [FT Developer account](https://developer.ft.com/portal/docs-start-create-an-ft-api-developer-account)
+
 ```javascript
 const { Client } = require("@cablanchard/ft-api");
 
@@ -16,13 +18,35 @@ const client = new Client({
 });
 ```
 
-### Headlines API
+### Content Search API
+
+Search for items of content that are available on www.ft.com.
 
 ```javascript
 client.search({ query: "Trump" });
 ```
 
+### Notifications API
+
 ```javascript
+???
+```
+
+### Discovery APIs
+
+```javascript
+// An API endpoint to discover which field names can be used in search API queries
+const searchableFields = await client.searchable();
+
+// An API endpoint to discover a list of sortable fields that can be specified in search API queries.
+const sortableFields = await client.sortable();
+
+// An API endpoint to discover a list of facets that can be specified in search API queries
+const facts = await client.facets();
+```
+
+
+```
 POST Search 2: queryString={Trump AND Clinton}, curations={Articles}
 This will search for content that mentions Trump in any of the searchable fields, but where the headline (title) contains Clinton
 
