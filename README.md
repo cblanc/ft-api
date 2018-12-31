@@ -23,7 +23,9 @@ const client = new Client({
 Search for items of content that are available on www.ft.com.
 
 ```javascript
-client.search({ query: "Trump" });
+const response = client.search({ query: "banks" });
+
+console.log(response.data); // => Print search response
 ```
 
 ### Notifications API
